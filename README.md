@@ -121,14 +121,6 @@ After the visits get logged, you can retrieve the data by the following method:
 | `popularLastYear()` | `void` | get popular visits last year | `Post::popularLastYear()->get()` |
 | `popularBetween()` | Carbon `$from`, Carbon `$to` | get popular visits between custom two dates | `Post::popularBetween(Carbon::createFromDate(2019, 1, 9), Carbon::createFromDat(2022, 1, 3))->get();` |
 
-## Visit Presenter
-This package is coming with helpful decorate model properties, and it uses [Laravel Presenter](https://github.com/coderflexx/laravel-presenter) package under the hood.
-
-| METHOD      | SYNTAX      | DESCRIPTION | EXAMPLE     |
-| ----------- | ----------- | ----------- | ----------- |
-| `ip()` | `void` | Get the associated IP from the model instance | `$post->visits->first()->present()->ip`|
-| `user()` | `void` | Get the associated User from the model instance | `$post->visits->first()->present()->user->name`|
-
 ## Testing
 
 ```bash

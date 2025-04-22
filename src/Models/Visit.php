@@ -2,9 +2,6 @@
 
 namespace Coderflex\Laravisit\Models;
 
-use Coderflex\LaravelPresenter\Concerns\CanPresent;
-use Coderflex\LaravelPresenter\Concerns\UsesPresenters;
-use Coderflex\Laravisit\Presenters\VisitPresenter;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -14,9 +11,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  */
-class Visit extends Model implements CanPresent
+class Visit extends Model
 {
-    use UsesPresenters;
 
     /**
      * The table associated with the model.
@@ -39,15 +35,6 @@ class Visit extends Model implements CanPresent
      */
     protected $casts = [
         'data' => 'json',
-    ];
-
-    /**
-     * The classes that should be present
-     *
-     * @var array
-     */
-    protected $presenters = [
-        'default' => VisitPresenter::class,
     ];
 
     public function visitable()

@@ -66,14 +66,6 @@ it('creates a visit with the given session id', function () {
         ]);
 });
 
-it('gets the correct ip when creating a visit', function () {
-    $post = Post::factory()->create();
-
-    $post->visit()->withIp();
-
-    expect($post->visits->first()->present()->ip)
-        ->toEqual(request()->ip());
-});
 
 it('creates a visit with custom data', function () {
     $post = Post::factory()->create();
@@ -118,17 +110,6 @@ it('creates a visit with a given user', function () {
         ->toMatchArray([
             'user_id' => $user->id,
         ]);
-});
-
-
-it('gets the associated user when creating a visit', function () {
-    $user = User::factory()->create();
-    $post = Post::factory()->create();
-
-    $post->visit()->withUser($user);
-
-    expect($post->visits->first()->present()->user->name)
-        ->toEqual($user->name);
 });
 
 it('does note create duplicate visits with the same data', function () {
